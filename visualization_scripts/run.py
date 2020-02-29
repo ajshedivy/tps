@@ -114,7 +114,7 @@ def main(args):
     # input args from command line
     OUTPUT_FILE = args[1]
     STYLE_FILE = args[2]
-    DIRNAME = r"C:\Users"
+    DIRNAME = r"C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1"
     CYTOSCAPE = 'Cytoscape.exe'
 
     # check if Cytoscape is running 
