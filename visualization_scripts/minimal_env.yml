@@ -1,13 +1,15 @@
-name: py2cyto_min
+name: py2cyto_min1
 channels:
   - conda-forge
   - defaults
 dependencies:
   - python=3.5.4
   - scipy=1.1.0=py35h4f6bf74_1
+  - networkx
+  - numpy
+  - pandas
+  - requests
   - pip:
     - python-igraph==0.7.1.post6
     - py2cytoscape==0.7.1
-    - networkx==2.4
-    - numpy==1.17.4
-    - pandas==0.25.3
+   

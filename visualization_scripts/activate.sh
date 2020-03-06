@@ -3,13 +3,13 @@
 #conda init bash
 echo "starting script"
 eval "$(conda shell.bash hook)"
-conda activate py2cyto_min
+conda activate py2cyto_min1
 
 #echo "check enviornment"
 if [ $? -ne 0 ]; then
 	echo "creating py2cyto environment"
 	conda env create -f minimal_env.yml
-	conda activate py2cyto
+	conda activate py2cyto_min1
 fi
 echo "environment activated"
 

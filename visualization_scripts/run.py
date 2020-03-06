@@ -19,6 +19,8 @@ import sys
 import time
 import subprocess
 import os
+from requests.exceptions import ConnectionError as CE
+from json.decoder import JSONDecodeError 
 
 #assert Cytoscape is running on machine
 
@@ -75,14 +77,9 @@ def vis(output, style):
         style: style file for cytoscpe 
     """
     
-    print("output file: " + output)
-    print("style file: " + style)
-    
-
     #create cyrest client
     cyy = cyrest.cyclient()
-    print("CyRest client created")
-
+    
     # Step 1: Create py2cytoscape client
     cy = CyRestClient()
 
@@ -130,7 +127,7 @@ def main(args):
         p = subprocess.Popen(cytoPath)
 
         # pause execution, wait for Cytoscape to load
-        time.sleep(50)
+        #time.sleep(50)
 
     else:
 
@@ -138,7 +135,43 @@ def main(args):
         print("Cytoscape running")
 
     # call vis fuction to load input files in Cytoscape session
-    vis(OUTPUT_FILE, STYLE_FILE)
+    # catch errors: ConnectionError, JSONDecoderError
+    connectionCount = 0 
+    JSONCount = 0
+    switch = False
+    while switch == False:
+        try:
+
+            # run visualization function 
+            vis(OUTPUT_FILE, STYLE_FILE)
+
+            # print information --------------------------------
+            print("CyRest client created")
+            print("output file: " + OUTPUT_FILE)
+            print("style file: " + STYLE_FILE)
+            print("max ConnectionError catches: ", connectionCount)
+            print("max JSONDecoderError catches: ", JSONCount)
+            # --------------------------------------------------
+
+            # flip switch value
+            switch = True
+
+        except CE as e:
+            
+            #requests.ConnectionError caught if connection cannot be made with Cytoscape Server
+            connectionCount += 1
+            switch = False
+            continue
+
+        except JSONDecodeError as e:
+
+            # error thorwn from trying to create CyClient
+            JSONCount += 1
+            switch = False
+            continue
+
+    print("End loading output file ans style file")
+  
 
 
 if __name__ == '__main__':

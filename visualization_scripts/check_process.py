@@ -17,7 +17,7 @@ def process_exists(process_name):
 
 print("sleep program execution")
 print("waiting for Cytoscape to load")
-time.sleep(45)
+#time.sleep(45)
 print("sleep over")
 
 # check Cytoscape

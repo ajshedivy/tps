@@ -1,0 +1,17 @@
+starting script
+environment activated
+<IPython.core.display.Javascript object>
+Cytoscape not running
+session reset
+loading network file
+Done
+apply style file
+style name:  ['default_0']
+Done! open up cytoscape session
+CyRest client created
+output file: output.sif
+style file: style.xml
+max ConnectionError catches:  12
+max JSONDecoderError catches:  77
+End loading output file ans style file
+end script

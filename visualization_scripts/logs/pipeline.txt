@@ -1,0 +1,257 @@
+$ bash activate.sh output.sif style.xml
+starting script
+Could not find conda environment: py2cyto_min1
+You can list all discoverable environments with `conda info --envs`.
+
+creating py2cyto environment
+Warning: you have pip-installed dependencies in your environment file, but you do not list pip itself as one of your conda dependencies.  Conda may not use the correct pip to install your packages, and they may end up in the wrong place.  Please add an explicit pip dependency.  I'm adding one for you, but still nagging you.
+Collecting package metadata: ...working... done
+Solving environment: ...working... done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.6.14
+  latest version: 4.8.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+Downloading and Extracting Packages
+chardet-3.0.4        | 210 KB    | ########## | 100%
+pycparser-2.20       | 89 KB     | ########## | 100%
+pyopenssl-18.0.0     | 80 KB     | ########## | 100%
+cffi-1.11.5          | 212 KB    | ########## | 100%
+cryptography-vectors | 30.4 MB   | ########## | 100%
+idna-2.7             | 132 KB    | ########## | 100%
+cryptography-2.3.1   | 510 KB    | ########## | 100%
+openssl-1.0.2u       | 5.4 MB    | ########## | 100%
+asn1crypto-0.24.0    | 155 KB    | ########## | 100%
+pysocks-1.6.8        | 22 KB     | ########## | 100%
+requests-2.19.1      | 94 KB     | ########## | 100%
+urllib3-1.23         | 153 KB    | ########## | 100%
+win_inet_pton-1.0.1  | 5 KB      | ########## | 100%
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Ran pip subprocess with arguments:
+['C:\\Users\\ajshe\\Anaconda3\\envs\\py2cyto_min1\\python.exe', '-m', 'pip', 'install', '-U', '-r', 'C:\\Users\\ajshe\\Anaconda3\\envs\\py2cyto\\tps\\visualization_scripts\\condaenv.j559a23p.requirements.txt']
+Pip subprocess output:
+Collecting python-igraph==0.7.1.post6
+  Using cached python-igraph-0.7.1.post6.tar.gz (377 kB)
+Requirement already up-to-date: py2cytoscape==0.7.1 in c:\users\ajshe\appdata\roaming\python\python35\site-packages (from -r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (0.7.1)
+Collecting pydot
+  Using cached pydot-1.4.1-py2.py3-none-any.whl (19 kB)
+Requirement already satisfied, skipping upgrade: networkx in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (2.4)
+Processing c:\users\ajshe\appdata\local\pip\cache\wheels\35\7b\ab\66fb7b2ac1f6df87475b09dc48e707b6e0de80a6d8444e3628\pydotplus-2.0.2-cp35-none-any.whl
+Requirement already satisfied, skipping upgrade: pandas in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (0.23.4)
+Collecting pyparsing
+  Using cached pyparsing-2.4.6-py2.py3-none-any.whl (67 kB)
+Requirement already satisfied, skipping upgrade: requests in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (2.19.1)
+Requirement already satisfied, skipping upgrade: decorator>=4.3.0 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from networkx->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (4.4.2)
+Requirement already satisfied, skipping upgrade: python-dateutil>=2.5.0 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from pandas->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (2.8.1)
+Requirement already satisfied, skipping upgrade: pytz>=2011k in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from pandas->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (2019.3)
+Requirement already satisfied, skipping upgrade: numpy>=1.9.0 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from pandas->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (1.15.2)
+Requirement already satisfied, skipping upgrade: chardet<3.1.0,>=3.0.2 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from requests->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (3.0.4)
+Requirement already satisfied, skipping upgrade: idna<2.8,>=2.5 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from requests->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (2.7)
+Requirement already satisfied, skipping upgrade: urllib3<1.24,>=1.21.1 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from requests->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (1.23)
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from requests->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (2018.8.24)
+Requirement already satisfied, skipping upgrade: six>=1.5 in c:\users\ajshe\anaconda3\envs\py2cyto_min1\lib\site-packages (from python-dateutil>=2.5.0->pandas->py2cytoscape==0.7.1->-r C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\visualization_scripts\condaenv.j559a23p.requirements.txt (line 2)) (1.11.0)
+Building wheels for collected packages: python-igraph
+  Building wheel for python-igraph (setup.py): started
+  Building wheel for python-igraph (setup.py): finished with status 'error'
+  Running setup.py clean for python-igraph
+Failed to build python-igraph
+Installing collected packages: python-igraph, pyparsing, pydot, pydotplus
+    Running setup.py install for python-igraph: started
+    Running setup.py install for python-igraph: finished with status 'error'
+
+#
+# To activate this environment, use
+#
+#     $ conda activate py2cyto_min1
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+environment activated
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\base_view.py:8: UserWarning:
+
+
+**** data.base_view will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.base_view will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\edge_view.py:8: UserWarning:
+
+
+**** data.edge_view will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.edge_view will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\node_view.py:10: UserWarning:
+
+
+**** data.node_view will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.node_view will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\util_network.py:4: UserWarning:
+
+
+**** data.util_network will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.util_network will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\util_http.py:4: UserWarning:
+
+
+**** data.util_http will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.util_http will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\network_view.py:17: UserWarning:
+
+
+**** data.network_view will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.network_view will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\util\util_networkx.py:11: UserWarning:
+
+
+**** util.util_networkx will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** util.util_networkx will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\util\util_graphlab.py:2: UserWarning:
+
+
+**** util.util_graphlab will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** util.util_graphlab will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\util\util_igraph.py:9: UserWarning:
+
+
+**** util.util_igraph will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** util.util_igraph will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\util\__init__.py:14: UserWarning:
+
+
+**** util will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** util will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\util\cytoscapejs.py:5: UserWarning:
+
+
+**** util.cytoscapejs will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** util.cytoscapejs will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\util\util_dataframe.py:6: UserWarning:
+
+
+**** util.util_dataframe will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** util.util_dataframe will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\cynetwork.py:14: UserWarning:
+
+
+**** data.cynetwork will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.cynetwork will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\util\util_numpy.py:4: UserWarning:
+
+
+**** util.util_numpy will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** util.util_numpy will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\network_client.py:20: UserWarning:
+
+
+**** data.network_client will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.network_client will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\style.py:7: UserWarning:
+
+
+**** data.style will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.style will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\style_client.py:10: UserWarning:
+
+
+**** data.style_client will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.style_client will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\algorithm_client.py:4: UserWarning:
+
+
+**** data.algorithm_client will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.algorithm_client will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\session_client.py:4: UserWarning:
+
+
+**** data.session_client will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.session_client will be deprecated in the next py2cytoscape release. ****\n\n\n')
+C:\Users\ajshe\AppData\Roaming\Python\Python35\site-packages\py2cytoscape\data\cyrest_client.py:13: UserWarning:
+
+
+**** data.cyrest_client will be deprecated in the next py2cytoscape release. ****
+
+
+
+  warnings.warn('\n\n\n**** data.cyrest_client will be deprecated in the next py2cytoscape release. ****\n\n\n')
+No module named 'igraph'
+py2cytoscape: Error importing igraph. You won't be able to import from igraph.
+<IPython.core.display.Javascript object>
+Cytoscape not running
+session reset
+loading network file
+Done
+apply style file
+style name:  ['default_0']
+Done! open up cytoscape session
+CyRest client created
+output file: output.sif
+style file: style.xml
+max ConnectionError catches:  14
+max JSONDecoderError catches:  81
+End loading output file ans style file
+end script
