@@ -85,21 +85,21 @@ def vis(output, style):
 
     # Reset
     cy.session.delete()
-    print("session reset")
+    print("---session reset")
 
     # Step 2: Load network from somewhere
-    print("loading network file")
+    print("---loading network file")
     tps_net = cy.network.create_from(output)
-    print("Done")
+    print("---Done")
     time.sleep(2)
 
 
     # Step 3: Apply layout
     # list of styles to apply
     # only contains the one style loaded from style file 
-    print("apply style file")
+    print("---apply style file")
     style = cyy.vizmap.load_file(style)
-    print("style name: ", style)
+    print("---style name: ", style)
     cyy.vizmap.apply(style[0])
 
     print("Done! open up cytoscape session")
@@ -118,7 +118,7 @@ def main(args):
     isRunning = process_exists('Cytoscape.exe')
 
     if (isRunning == False):
-        print("Cytoscape not running")
+        print("---Cytoscape not running")
 
         # find path to Cytoscape on machine 
         cytoPath = find_path(CYTOSCAPE, DIRNAME)
@@ -126,13 +126,10 @@ def main(args):
         # open Cytoscape 
         p = subprocess.Popen(cytoPath)
 
-        # pause execution, wait for Cytoscape to load
-        #time.sleep(50)
-
     else:
 
         # continue on
-        print("Cytoscape running")
+        print("---Cytoscape running")
 
     # call vis fuction to load input files in Cytoscape session
     # catch errors: ConnectionError, JSONDecoderError
@@ -146,11 +143,11 @@ def main(args):
             vis(OUTPUT_FILE, STYLE_FILE)
 
             # print information --------------------------------
-            print("CyRest client created")
-            print("output file: " + OUTPUT_FILE)
-            print("style file: " + STYLE_FILE)
-            print("max ConnectionError catches: ", connectionCount)
-            print("max JSONDecoderError catches: ", JSONCount)
+            print("---CyRest client created")
+            print("---output file: " + OUTPUT_FILE)
+            print("---style file: " + STYLE_FILE)
+            print("---ConnectionError catches: ", connectionCount)
+            print("---JSONDecoderError catches: ", JSONCount)
             # --------------------------------------------------
 
             # flip switch value
@@ -170,7 +167,7 @@ def main(args):
             switch = False
             continue
 
-    print("End loading output file ans style file")
+    print("---Finish loading output file and style file")
   
 
 
