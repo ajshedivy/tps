@@ -13,6 +13,21 @@ if [ $? -ne 0 ]; then
 fi
 echo "-environment activated"
 
+FILE=$1
+if [ -f "$FILE" ]; then
+	echo "$FILE exists"
+else 
+	echo "$FILE does not exist"
+	exit
+fi
 
+FILE2=$2
+if [ -f "$FILE2" ]; then
+	echo "$FILE2 exists"
+else 
+	echo "FILE2 does not exist"
+	exit
+fi
 python run.py $1 $2
+
 echo "-end script"

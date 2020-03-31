@@ -114,6 +114,15 @@ def main(args):
     DIRNAME = r"C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1"
     CYTOSCAPE = 'Cytoscape.exe'
 
+    if OUTPUT_FILE.lower().endswith(".sif"):
+        print ("file has valid extention")
+    else:
+        print ("invalid extension on output file: ", OUTPUT_FILE)
+        sys.exit()
+    
+    #!TODO check style file extensiona nd format 
+
+
     # check if Cytoscape is running 
     isRunning = process_exists('Cytoscape.exe')
 
@@ -136,6 +145,7 @@ def main(args):
     connectionCount = 0 
     JSONCount = 0
     switch = False
+    start = time.time()
     while switch == False:
         try:
 
@@ -157,6 +167,7 @@ def main(args):
             
             #requests.ConnectionError caught if connection cannot be made with Cytoscape Server
             connectionCount += 1
+           # time.sleep(20)
             switch = False
             continue
 
@@ -164,8 +175,11 @@ def main(args):
 
             # error thorwn from trying to create CyClient
             JSONCount += 1
+            #time.sleep(20)
             switch = False
             continue
+    end = time.time()
+    print("---time elapsed: ", end - start)  
 
     print("---Finish loading output file and style file")
   
