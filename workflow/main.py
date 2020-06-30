@@ -9,6 +9,7 @@ from visualization_utilities import vis, find_path, process_exists
 from table_generation import PrepTemporalCytoscapeTPS
 from table_refactor import refactor_col_delim_heat, refactor_col_delim
 from requests.exceptions import ConnectionError as CE
+from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
 import os
 import pandas as pd
@@ -37,27 +38,33 @@ def main():
     # * create Base directory
     baseDir = os.path.abspath(os.path.join('..'))
     tps_in_dir = os.path.join(baseDir, 'data', 'timeseries')
-    tps_out_dir = os.path.join(
-        baseDir, 'results', 'results_reproduce_egfr_tps_' + str(today))
-    if not os.path.exists(tps_out_dir):
-        os.makedirs(tps_out_dir)
-        print('Created {}'.format(tps_out_dir))
+    out_dir = os.path.join(baseDir, 'results', str(
+        today) + '-and-wolf-yadlin-TPS-cytoscape')
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+        print('Created {}'.format(out_dir))
     print(baseDir)
     print(tps_in_dir)
-    print(tps_out_dir)
+    print(out_dir)
 
     # * Move files into directory
     output_sif_orig = os.path.join(baseDir, 'output.sif')
     activity_tsv_orig = os.path.join(baseDir, 'activity-windows.tsv')
+    output_tsv_orig = os.path.join(baseDir, 'output.tsv')
+    temporal_orig = os.path.join(baseDir, 'temporal-interpretation.tsv')
+    
     output_dest = os.path.join(baseDir, 'workflow', 'output.sif')
     activity_dest = os.path.join(baseDir, 'workflow', 'activity-windows.tsv')
 
     os.replace(output_sif_orig, output_dest)
     os.replace(activity_tsv_orig, activity_dest)
+    os.replace(output_tsv_orig, os.path.join(out_dir, 'output.tsv'))
+    os.replace(temporal_orig, os.path.join(out_dir, 'temporal-interpretation.tsv'))
 
     # input args from command line
-    OUTPUT_FILE = os.path.join(baseDir, 'workflow' , 'output.sif')
-    STYLE_FILE = os.path.join(baseDir, 'workflow','tps_style.xml')
+    OUTPUT_FILE = os.path.join(baseDir, 'workflow', 'output.sif')
+    STYLE_FILE = os.path.join(baseDir, 'workflow', 'tps_style.xml')
+    print("*** NO NEED TO MOVE FILES")
 
     # dir name set manually
     DIRNAME = r"C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1"
@@ -102,11 +109,7 @@ def main():
     styleTemplateFile = os.path.join(
         baseDir, 'notebooks', 'tps_style_template.xml')
 
-    out_dir = os.path.join(baseDir, 'results', str(
-        today) + '-and-wolf-yadlin-TPS-cytoscape')
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-        print('Created {}'.format(out_dir))
+    
     outFile = os.path.join(
         out_dir, 'wolf-yadlin-cytoscape-annotations-' + str(today) + '.txt')
     outStyleFile = os.path.join(out_dir, 'tps_style.xml')
@@ -170,11 +173,12 @@ def main():
     # catch errors: ConnectionError, JSONDecoderError
     connection_count = 0
     JSON_count = 0
+    http_count = 0
     switch = False
     start = time.time()
     while switch is False:
         try:
-
+            
             # run visualization function
             vis(OUTPUT_FILE, STYLE_FILE, REFACTORED_ANNOTATIONS, SAVE_FILE)
             
@@ -191,6 +195,7 @@ def main():
             print("---style file: " + STYLE_FILE)
             print("---ConnectionError catches: ", connection_count)
             print("---JSONDecoderError catches: ", JSON_count)
+            print("---HTTP catches: ", http_count)
             # --------------------------------------------------
 
             # flip switch value
@@ -211,6 +216,10 @@ def main():
             time.sleep(2)
             switch = False
             continue
+        except HTTPError as e :
+            http_count+=1
+            time.sleep(2)
+            switch = False
     end = time.time()
     print("---time elapsed: ", end - start)
 

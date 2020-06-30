@@ -103,97 +103,96 @@ def vis(output, style, table, path):
                           dataTypeList="s,s,b,dl,dl,dl,dl,dl,dl,dl,dl,dl,dl,dl,dl,dl,dl,dl \
                           ,dl,dl,s,il,il,il,il,il,s,il,il,il,il,il,il"
                           )
-    
+
     cyy.session.save_as(session_file=path)
 
     print("Done! open up cytoscape session")
 
 
+# def main(args):
 
-def main(args):
+#     # input args from command line
+#     OUTPUT_FILE = args[1]
+#     STYLE_FILE = args[2]
+#     ANNOTATIONS_FILE = args[3]
+#     DIRNAME = r"C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1"
+#     CYTOSCAPE = 'Cytoscape.exe'
 
-    # input args from command line
-    OUTPUT_FILE = args[1]
-    STYLE_FILE = args[2]
-    ANNOTATIONS_FILE = args[3]
-    DIRNAME = r"C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1"
-    CYTOSCAPE = 'Cytoscape.exe'
+#     if OUTPUT_FILE.lower().endswith(".sif"):
+#         print("file has valid extention")
+#     else:
+#         print("invalid extension on output file: ", OUTPUT_FILE)
+#         sys.exit()
 
-    if OUTPUT_FILE.lower().endswith(".sif"):
-        print("file has valid extention")
-    else:
-        print("invalid extension on output file: ", OUTPUT_FILE)
-        sys.exit()
+#     # get absolute paths if nessesay
+#     OUTPUT_FILE = os.path.abspath(OUTPUT_FILE)
+#     STYLE_FILE = os.path.abspath(STYLE_FILE)
+#     ANNOTATIONS_FILE = os.path.abspath(ANNOTATIONS_FILE)
+#     print("---absolute output path: ", OUTPUT_FILE)
+#     print("---absolute style path: ", STYLE_FILE)
+#     print("---absolute annotations path: ", ANNOTATIONS_FILE)
 
-    # get absolute paths if nessesay
-    OUTPUT_FILE = os.path.abspath(OUTPUT_FILE)
-    STYLE_FILE = os.path.abspath(STYLE_FILE)
-    ANNOTATIONS_FILE = os.path.abspath(ANNOTATIONS_FILE)
-    print("---absolute output path: ", OUTPUT_FILE)
-    print("---absolute style path: ", STYLE_FILE)
-    print("---absolute annotations path: ", ANNOTATIONS_FILE)
+#     #!TODO check style file extensiona and format
+#     # check if Cytoscape is running
+#     is_running = process_exists('Cytoscape.exe')
 
-    #!TODO check style file extensiona and format
-    # check if Cytoscape is running
-    is_running = process_exists('Cytoscape.exe')
+#     if (is_running == False):
+#         print("---Cytoscape not running")
 
-    if (is_running == False):
-        print("---Cytoscape not running")
+#         # find path to Cytoscape on machine
+#         cyto_path = find_path(CYTOSCAPE, DIRNAME)
 
-        # find path to Cytoscape on machine
-        cyto_path = find_path(CYTOSCAPE, DIRNAME)
+#         # open Cytoscape
+#         p = subprocess.Popen(cyto_path)
 
-        # open Cytoscape
-        p = subprocess.Popen(cyto_path)
+#     else:
 
-    else:
+#         # continue on
+#         print("---Cytoscape running")
 
-        # continue on
-        print("---Cytoscape running")
+#     # call vis fuction to load input files in Cytoscape session
+#     # catch errors: ConnectionError, JSONDecoderError
+#     connection_count = 0
+#     JSON_count = 0
+#     switch = False
+#     start = time.time()
+#     while switch is False:
+#         try:
 
-    # call vis fuction to load input files in Cytoscape session
-    # catch errors: ConnectionError, JSONDecoderError
-    connection_count = 0
-    JSON_count = 0
-    switch = False
-    start = time.time()
-    while switch is False:
-        try:
+#             # run visualization function
+#             vis(OUTPUT_FILE, STYLE_FILE, ANNOTATIONS_FILE)
 
-            # run visualization function
-            vis(OUTPUT_FILE, STYLE_FILE, ANNOTATIONS_FILE)
+#             # print information --------------------------------
+#             print("---CyRest client created")
+#             print("---output file: " + OUTPUT_FILE)
+#             print("---style file: " + STYLE_FILE)
+#             print("---ConnectionError catches: ", connection_count)
+#             print("---JSONDecoderError catches: ", JSON_count)
+#             # --------------------------------------------------
 
-            # print information --------------------------------
-            print("---CyRest client created")
-            print("---output file: " + OUTPUT_FILE)
-            print("---style file: " + STYLE_FILE)
-            print("---ConnectionError catches: ", connection_count)
-            print("---JSONDecoderError catches: ", JSON_count)
-            # --------------------------------------------------
+#             # flip switch value
+#             switch = True
 
-            # flip switch value
-            switch = True
+#         except CE as e:
 
-        except CE as e:
+#             # requests.ConnectionError caught if connection cannot be made with Cytoscape Server
+#             connection_count += 1
+#             time.sleep(2)
+#             switch = False
+#             continue
 
-            # requests.ConnectionError caught if connection cannot be made with Cytoscape Server
-            connection_count += 1
-            time.sleep(2)
-            switch = False
-            continue
+#         except JSONDecodeError as e:
 
-        except JSONDecodeError as e:
+#             # error thorwn from trying to create CyClient
+#             JSON_count += 1
+#             time.sleep(2)
+#             switch = False
+#             continue
+#     end = time.time()
+#     print("---time elapsed: ", end - start)
 
-            # error thorwn from trying to create CyClient
-            JSON_count += 1
-            time.sleep(2)
-            switch = False
-            continue
-    end = time.time()
-    print("---time elapsed: ", end - start)
-
-    print("---Finish loading output file and style file")
+#     print("---Finish loading output file and style file")
 
 
-if __name__ == '__main__':
-    main(sys.argv)
+# if __name__ == '__main__':
+#     main(sys.argv)
