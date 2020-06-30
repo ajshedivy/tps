@@ -56,8 +56,8 @@ def main():
     os.replace(activity_tsv_orig, activity_dest)
 
     # input args from command line
-    OUTPUT_FILE = os.path.join(baseDir, 'workflow', 'output.sif')
-    STYLE_FILE = os.path.join(baseDir, 'workflow', 'tps_style.xml')
+    OUTPUT_FILE = os.path.join(baseDir, 'workflow' , 'output.sif')
+    STYLE_FILE = os.path.join(baseDir, 'workflow','tps_style.xml')
 
     # dir name set manually
     DIRNAME = r"C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1"
@@ -147,6 +147,7 @@ def main():
 
     REFACTORED_ANNOTATIONS = txt_file2
     SAVE_FILE = os.path.join(out_dir, 'TPS_session')
+    
 
     # check if Cytoscape is running
     is_running = process_exists('Cytoscape.exe')
@@ -176,6 +177,13 @@ def main():
 
             # run visualization function
             vis(OUTPUT_FILE, STYLE_FILE, REFACTORED_ANNOTATIONS, SAVE_FILE)
+            
+            # * Move files into directory
+            results_output_dest = os.path.join(out_dir, 'output.sif')
+            results_activity_dest = os.path.join(out_dir, 'activity-windows.tsv')
+
+            os.replace(output_dest, results_output_dest)
+            os.replace(activity_dest, results_activity_dest)
 
             # print information --------------------------------
             print("---CyRest client created")
