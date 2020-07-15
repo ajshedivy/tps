@@ -1,0 +1,24 @@
+- Cytoscape: C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1
+- TPS:
+    network: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\networks\input-network.tsv
+    timeseries: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\median-time-series.tsv
+    firstscores: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\p-values-first.tsv
+    prevscores: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\p-values-prev.tsv
+    partialmodel: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\resources\kinase-substrate-interactions.sif
+    peptidemap: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\peptide-mapping.tsv
+    source: EGF_HUMAN
+    threshold: 0.01
+- Annotations: 
+    peptideMapFile: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\peptide-mapping.tsv
+    timeSeriesFile: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\log2-fold-change.txt
+    peptideFirstScores: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\p-values-first.tsv
+    peptidePrevScoreFile: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\timeseries\p-values-prev.tsv
+    windowsFile: "output_placeholder"
+    networkFile: "output_placeholder"
+    goldStandardFile: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\resources\eight-egfr-reference-all.txt
+    pvalTresh: 0.01
+    logTransform: False
+    styleTemplateFile: C:\Users\ajshe\Anaconda3\envs\py2cyto\tps\data\templates\tps_style_template.xml
+    outAnnotFile: "annotations_output"
+    outStyleFile: "style_output"
+    addZero: True
