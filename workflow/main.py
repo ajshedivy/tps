@@ -66,7 +66,7 @@ def main():
 
     # dir name set manually
     DIRNAME = r"C:\Users\ajshe\OneDrive\Documents\Comp_bio\Cytoscape_v3.7.1"
-    CYTOSCAPE = 'Cytoscape.exe'
+    CYTOSCAPE = 'cytoscape.sh'
 
     if OUTPUT_FILE.lower().endswith(".sif"):
         print("file has valid extention")
@@ -150,22 +150,29 @@ def main():
     SAVE_FILE = os.path.join(out_dir, 'TPS_session')
     
 
-    # check if Cytoscape is running
-    is_running = process_exists('Cytoscape.exe')
+    # --------------------------------------------------------------------
+    # # check if Cytoscape is running
+    # is_running = process_exists('Cytoscape.exe')
 
-    if (is_running == False):
-        print("---Cytoscape not running")
+    # if (is_running == False):
+    #     print("---Cytoscape not running")
 
-        # find path to Cytoscape on machine
-        cyto_path = find_path(CYTOSCAPE, DIRNAME)
+    #     # find path to Cytoscape on machine
+    #     cyto_path = find_path(CYTOSCAPE, DIRNAME)
 
-        # open Cytoscape
-        p = subprocess.Popen(cyto_path)
+    #     # open Cytoscape
+    #     p = subprocess.Popen(cyto_path)
 
-    else:
+    # else:
 
-        # continue on
-        print("---Cytoscape running")
+    #     # continue on
+    #     print("---Cytoscape running")
+    # --------------------------------------------------------------------
+    
+    # launch CYTOSCAPE
+    p = subprocess.call("launch.sh")
+    
+    
 
     # call vis fuction to load input files in Cytoscape session
     # catch errors: ConnectionError, JSONDecoderError
